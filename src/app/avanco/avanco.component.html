@@ -5,14 +5,14 @@
   <section class="content">
     <section class="invoice">
           <ol class="breadcrumb">
-            <li><a [routerLink]="['/']">SDO - Home</a></li>
-            <li>Avanço de Obras</li>
+            <li><a [routerLink]="['/']">PlCS - Home</a></li>
+            <li>Salário</li>
           </ol>
           <form #form="ngForm" novalidate>
             <div class="row">
               <div class="col-xs-12">
                 <h2 class="page-header">
-                  <i class="glyphicon glyphicon-dashboard"></i> Cadastrar Avanço
+                  <i class="glyphicon glyphicon-dashboard"></i> Cadastrar Faixas Salariais
                 </h2>
               </div>
             </div>                
@@ -21,73 +21,53 @@
               <div class="col-xs-12">
                 <p class="lead">Informações Gerais:</p>
               </div>
+          
               <div class="col-sm-3 col-xs-6">
-                <label>Número da Obra:</label>
-                <mt-input-container errorMessage="Campo obrigatório" label="Obra">
-                  <input class="form-control" name="obra" ngModel required minlength="4" placeholder="Obra" autocomplete="off">
-                </mt-input-container>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <label>SubObra:</label>
+                <label>Cargo:</label>
                 <mt-input-container errorMessage="Campo obrigatório" label="SubObra">
                   <select type="text" class="form-control" name="subobra" required ngModel placeholder="SubObra" autocomplete="off">
-                    <option >EAD01</option>
-                    <option >RST54</option>
-                    <option >ASF09</option>
-                    <option >EAH09</option>
+                    <option >Estagiário</option>
+                    <option >Trainee</option>
+                    <option >Desenvolvedor Frontend</option>
+                    <option >Desenvolvedor Backend</option>
+                    <option >Desenvolvedor FullStack</option>
                   </select>
                 </mt-input-container>
               </div>
               <div class="col-sm-3 col-xs-6">
-                  <label>Processo:</label>
-                  <mt-input-container errorMessage="Campo obrigatório" label="Processo">
-                      <select type="text" class="form-control" name="processo" required ngModel placeholder="Processo">
-                        <option >Pré-moldagem</option>
-                        <option >Solda</option>
-                        <option >Pré-Solda</option>
-                        <option >Serralheiria</option>
+                  <label>Nível:</label>
+                  <mt-input-container errorMessage="Campo obrigatório" label="Nivel">
+                      <select type="text" class="form-control" name="nivel" required ngModel placeholder="Nível">
+                        <option >Júnior I</option>
+                        <option >Júnior II</option>
+                        <option >Junior III</option>
+                        <option >Pleno I</option>
+                        <option >Pleno II</option>
+                        <option >Pleno III</option>
+                        <option >Sênior I</option>
+                        <option >Sênior II</option>
+                        <option >Sênior III</option>
                       </select>
                   </mt-input-container>
               </div>
               <div class="col-sm-3 col-xs-6">
-                  <label>Data:</label>
+                  <label>Data de atualização:</label>
                   <mt-input-container errorMessage="Campo obrigatório" label="Data">
                       <input type="date" class="form-control" name="data" required ngModel placeholder="Data">
                   </mt-input-container>
               </div>
               <div class="col-sm-3 col-xs-6">
-                  <label>Hora:</label>
-                  <mt-input-container errorMessage="Campo obrigatório" label="Hora">
-                      <input type="text" class="form-control" name="hora" required ngModel placeholder="Hora">
-                  </mt-input-container>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                  <label>Status da Obra:</label>
-                  <mt-input-container errorMessage="Campo obrigatório" label="Status">
-                      <select type="text" class="form-control" name="status" required ngModel placeholder="Status">
-                        <option style="color: green">Concluído</option>
-                        <option style="color: gold">Em Andamento</option>
-                        <option style="color: red">Parado</option>
-                        <option style="color: mediumorchid">Atrasado</option>
+                  <label>Alterado por:</label>
+                  <mt-input-container errorMessage="Campo obrigatório" label="Funcionrio">
+                      <select type="text" class="form-control" name="funcionario" required ngModel placeholder="informe o funcionário">
+                        <option >Robervald Sidrome</option>
+                        <option >Dani</option>
+                        <option >Roberto Júnior</option>
+                        <option >Joyce</option>                    
                       </select>
                   </mt-input-container>
               </div>
-              <div class="col-sm-3 col-xs-6">
-                  <label>Turno:</label>
-                  <mt-input-container errorMessage="Campo obrigatório" label="Turno">
-                      <select type="text" class="form-control" name="turno" ngModel placeholder="Turno">
-                        <option >Manhã</option>
-                        <option >Tarde</option>
-                        <option >Noite</option>
-                      </select>
-                  </mt-input-container>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                  <label>Percentual de Avanço:</label>
-                  <mt-input-container errorMessage="Campo obrigatório" label="percAvanco">
-                      <input type="text" class="form-control" name="percAvanco" minlength="3" pattern="^[0-9]*$" required ngModel placeholder="Percentual de Avanço">
-                  </mt-input-container>
-              </div>
+            
              
               <!-- /.col -->
             </div>
@@ -113,16 +93,7 @@
                   </div>
   
               </div>
-              <!-- /.col -->
-              <div class="col-sm-6 col-xs-12">
-                <p class="lead">Avanço da Obra:</p>
-  
-                 <mt-obra-custo
-                 [porcentHora]="porcentHora"
-                 [valorObraHora]="valorObraHora"></mt-obra-custo>
-                
-              </div>
-              <!-- /.col -->
+              
             </div>
   
           </form>
