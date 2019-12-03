@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { LoginService } from './login.service';
+import { Services } from 'app/providers/services';
 
 @Component({
   selector: 'mt-login',
@@ -8,7 +8,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) { }
+  constructor(private fb: FormBuilder, private loginService: Services) { }
 
   loginForm: FormGroup;
 

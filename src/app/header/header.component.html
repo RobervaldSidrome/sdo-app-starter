@@ -3,7 +3,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a [routerLink]="['/']" class="navbar-brand"><b>PLCS</b></a>
+          <a [routerLink]="['/']" class="navbar-brand"><b>Super Ensino</b></a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -12,33 +12,17 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-              <li routerLinkActive="active"><a [routerLink]="['/obra']">
+              <li routerLinkActive="active"><a [routerLink]="['/cargo']">
                 <span class="glyphicon glyphicon-wrench"></span>Cargo</a>
               </li> 
-              <li routerLinkActive="active"><a [routerLink]="['/materiais']">
+              <li routerLinkActive="active"><a [routerLink]="['/setor']">
                 <span class="glyphicon glyphicon-retweet"></span>Setor</a>
               </li>           
-              <li routerLinkActive="active"><a [routerLink]="['/usuario']">
-                <span class="glyphicon glyphicon-lock"></span>Usuário</a>
-              </li>
               <li routerLinkActive="active"><a [routerLink]="['/avanco']">
                 <span class="glyphicon glyphicon-dashboard"></span>Salario</a>
               </li>
               <li routerLinkActive="active"><a [routerLink]="['/funcionario']">
                 <span class="glyphicon glyphicon-user"></span>Funcionário</a>
-              </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      <span routerLinkActive="active" class="glyphicon glyphicon-cog"></span>Manutenção
-                      <span class="caret"></span>
-                          <ul class="dropdown-menu">
-                              <li routerLinkActive="active">
-                                  <a [routerLink]="['/obra']"><span class="glyphicon glyphicon-pencil"></span> Obras</a>
-                              </li>
-                          </ul>
-                  </a>
               </li>
           </ul>
         </div>

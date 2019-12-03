@@ -1,21 +1,23 @@
 import {Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ObraComponent } from './obra/obra.component';
-import { AvancoComponent } from './avanco/avanco.component';
-import { MateriaisComponent } from './materiais/materiais.component';
+import { CargoController } from './cargo/cargo-controller';
+import { SalarioController } from './salario/salario-controller';
+import { SetorController } from './setor/setor-controller';
 import { UserComponent } from './user/user.component';
-import { FuncionarioComponent } from './funcionario/funcionario.component';
+import { FuncionarioController } from './funcionario/funcionario-controller';
 import { LoginComponent } from './security/login/login.component';
 import { AddUserComponent } from './user/add-user.component';
+import { AuthGuard } from './providers/auth-guard';
 
 export const ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
-    {path: '', component: HomeComponent},    
-    {path: 'obra', component: ObraComponent},
-    {path: 'materiais', component: MateriaisComponent},
+    {path: '',redirectTo:'home',pathMatch:'full'},  
+    {path: 'home', component:HomeComponent},  
+    {path: 'cargo', component: CargoController},
+    {path: 'setor', component: SetorController},
     {path: 'list', component: UserComponent},
     {path: 'usuario', component: AddUserComponent},
-    {path: 'avanco', component: AvancoComponent},
-    {path: 'funcionario', component: FuncionarioComponent}
+    {path: 'avanco', component: SalarioController},
+    {path: 'funcionario', component: FuncionarioController}
 
 ]

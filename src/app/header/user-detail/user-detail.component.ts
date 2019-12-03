@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../../app/security/login/login.service';
-import { User } from 'app/user/user.model';
+import { Services } from 'app/providers/services';
+
 
 @Component({
   selector: 'mt-user-detail',
@@ -9,7 +9,7 @@ import { User } from 'app/user/user.model';
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: Services) {}
 
   ngOnInit() {
   

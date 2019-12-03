@@ -1,0 +1,81 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+  </section>
+  
+  <section class="content">
+    <section class="invoice">
+          <ol class="breadcrumb">
+            <li><a [routerLink]="['/']">Super Ensino</a></li>
+            <li>Funcionário</li>
+          </ol>
+          <form #form="ngForm" novalidate>
+            <div class="form-group row">
+              <div class="col-xs-12">
+                <h2 class="page-header">
+                  <i class="glyphicon glyphicon-user"></i> Cadastrar Funcionário
+                </h2>
+              </div>
+            </div>                
+            <div class="row invoice-info">
+              <div class="col-xs-12">
+                <p class="lead">Informações Gerais</p>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+              <label class="col-form-label" for="matricula">Matrícula</label>
+              <mt-input-container errorMessage="Campo obrigatório, somente numeros" label="matricula">
+                  <input class="form-control" name="matricula" pattern="^[0-9]*$" ngModel required autocomplete="off">
+              </mt-input-container>  
+            </div>
+           </div>
+            <div class="form-group row">   
+              <div class="col-md-12">
+                <label class="col-form-label test" for="nome">Nome</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="nome"> 
+                  <input class="form-control" name="nome" ngModel required autocomplete="off">
+                </mt-input-container>  
+              </div>
+            </div>
+            <div class="form-group row"> 
+              <div class="col-md-12">
+                <label class="col-form-label" for="cargo">Cargo</label>  
+                <mt-input-container errorMessage="Campo obrigatório" label="cargo">
+                  <select class="form-control" ngModel required name="cargo">
+                    <option>Desenvolvedor Front-end</option>
+                  </select>
+                </mt-input-container>  
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label class="col-form-label" for="nivel">Nível</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="nivel">
+                 <select class="form-control" ngModel required name="nivel">
+                    <option>Junior I</option>
+                 </select>
+                </mt-input-container>  
+              </div>
+            </div> 
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label class="col-form-label" for="email">E-mail</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="email">
+                  <input class="form-control" name="email" ngModel required autocomplete="off">
+                </mt-input-container>
+              </div>    
+            </div>
+          </form>
+          <div class="form-group row">
+            <div class="pull-right">
+              <button (click)="form.reset()" type="button" class="btn btn-danger">
+                <i class="fa fa-trash"></i> Limpar</button>
+              <button (click)="checkOrder(form.value)" class="btn btn-success">
+                <i class="glyphicon glyphicon-save"></i> Cadastrar
+              </button>
+            </div>
+          </div>
+  
+      </section>
+  </section>
+  <!-- FIM DO CONTEUDO-->

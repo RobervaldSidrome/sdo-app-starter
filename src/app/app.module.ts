@@ -12,17 +12,16 @@ import { HomeComponent } from './home/home.component';
 import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { RatingComponent } from './shared/rating/rating.component';
-import { ObraComponent } from './obra/obra.component';
-import { ObraCustoComponent } from './obra/obra-custo/obra-custo.component';
-import { AvancoComponent } from './avanco/avanco.component';
-import { MateriaisComponent } from './materiais/materiais.component';
-import { FuncionarioComponent } from './funcionario/funcionario.component';
+import { CargoController } from './cargo/cargo-controller';
+
+import { SalarioController } from './salario/salario-controller';
+import { SetorController } from './setor/setor-controller';
+import { FuncionarioController } from './funcionario/funcionario-controller';
 import { LoginComponent } from './security/login/login.component';
 import { UserComponent } from './user/user.component';
 import { AddUserComponent } from './user/add-user.component';
-import { UserService } from './user/user.service';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
-import { LoginService } from './security/login/login.service';
+import {Services} from './providers/services'
 
 //import { NgxMaskModule } from 'ngx-mask';
 
@@ -31,19 +30,18 @@ import { LoginService } from './security/login/login.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    AvancoComponent,
+    SalarioController,
     HomeComponent,
     InputComponent,
     RadioComponent,
     RatingComponent,
-    ObraComponent,
-    ObraCustoComponent,
-    MateriaisComponent,
+    CargoController,
+    SetorController,
     UserComponent,
     AddUserComponent,
     UserDetailComponent,
    // UserService,
-    FuncionarioComponent,
+    FuncionarioController,
     LoginComponent
   ],
   imports: [
@@ -54,7 +52,7 @@ import { LoginService } from './security/login/login.service';
     //NgxMaskModule.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ {provide: LOCALE_ID, useValue: 'pt-BR'}, UserService, LoginService],
+  providers: [ {provide: LOCALE_ID, useValue: 'pt-BR'},Services],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

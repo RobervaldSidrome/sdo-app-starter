@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'mt-avanco',
-  templateUrl: './avanco.component.html'
+  selector: 'mt-salario',
+  templateUrl: './salario-page.html',
+  styleUrls:['./salario-style.css']
 })
-export class AvancoComponent implements OnInit {
+export class SalarioController implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
