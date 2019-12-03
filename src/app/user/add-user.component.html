@@ -5,7 +5,7 @@
 <section class="content">
   <section class="invoice">
         <ol class="breadcrumb">
-          <li><a [routerLink]="['/']">SDO - Home</a></li>
+          <li><a [routerLink]="['/']">Super Ensino</a></li>
           <li>Usuário</li>
         </ol>
         <form #form="ngForm" novalidate>
@@ -22,21 +22,21 @@
               <p class="lead">Informações Gerais:</p>
             </div>
             <div class="col-sm-3 col-xs-6">
-              <label>Email:</label>
+              <label>E-mail</label>
               <mt-input-container errorMessage="Campo obrigatório" label="Email">
                 <input class="form-control" type="email" name="email" [(ngModel)]="user.email" required placeholder="Email" autocomplete="off">
               </mt-input-container>
             </div>
             <div class="col-sm-3 col-xs-6">
-              <label>Nome:</label>
-              <mt-input-container errorMessage="Campo obrigatório" label="FirstName">
-                <input class="form-control" name="firstName" [(ngModel)]="user.firstName" required placeholder="Primeiro Nome">
+              <label>Nome</label>
+              <mt-input-container errorMessage="Campo obrigatório" label="name">
+                <input class="form-control" name="name" [(ngModel)]="user.name" required placeholder="Nome">
               </mt-input-container>
             </div>
             <div class="col-sm-3 col-xs-6">
-                <label>Sobrenome:</label>
-                <mt-input-container errorMessage="Campo obrigatório" label="LastName">
-                    <input  class="form-control" name="lastName" [(ngModel)]="user.lastName"  required placeholder="Sobrenome">
+                <label>Senha</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="senha">
+                    <input  class="form-control" name="senha" [(ngModel)]="user.senha"  required placeholder="Senha">
                 </mt-input-container>
             </div>
            

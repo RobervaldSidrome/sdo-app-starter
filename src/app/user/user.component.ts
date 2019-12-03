@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 
 import { User } from './user.model';
-import { UserService } from './user.service';
+import { Services } from 'app/providers/services';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +14,7 @@ export class UserComponent implements OnInit {
 
   users: User[];
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: Services) {
 
   }
 

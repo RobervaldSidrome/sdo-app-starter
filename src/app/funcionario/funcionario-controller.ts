@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mt-funcionario',
-  templateUrl: './funcionario.component.html'
+  templateUrl: './funcionario-page.html',
+  styleUrls:['./funcionario-style.css']
 })
-export class FuncionarioComponent implements OnInit {
+export class FuncionarioController implements OnInit {
 
   constructor() { }
 

@@ -269,3 +269,6 @@ body {
 .has-error-block {
   color: #dd4b39;
 }
+textarea{
+  resize: none;
+}

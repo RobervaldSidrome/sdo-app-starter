@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { User } from './user.model';
+import {SDO_API} from '../app.api';
+import { User } from '../user/user.model';
+import { Observable } from 'rxjs/Observable'
 
 
 // const httpOptions = {
@@ -9,9 +10,12 @@ import { User } from './user.model';
 // };
 
 @Injectable()
-export class UserService {
+export class Services {
 
-  constructor(private http:HttpClient) {}
+    
+  constructor(private http:HttpClient ) {
+      
+  }
 
   userUrl = 'http://localhost:8080/user-portal/users';
 
@@ -32,5 +36,9 @@ export class UserService {
   createUser(user) {
     return this.http.post<User>(this.userUrl, user);
   }
+  login(email: string, password: string): Observable<User>{
+    return this.http.post<User>(`${SDO_API}/login`,
+     {email: email, password: password})
+}
 
 }
