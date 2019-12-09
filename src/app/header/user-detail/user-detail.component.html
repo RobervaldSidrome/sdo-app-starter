@@ -1,11 +1,12 @@
 <div class="navbar-custom-menu">
     <ul class="nav navbar-nav">
-        <li class="user user-menu">
-            <a href="login">Entrar</a>
+        <li routerLinkActivate="active">
+            <a [routerLink]="['/login']">
+              <span class="glyphicon glyphicon-log-in"></span>  Entrar</a>
         </li>
-        <li class="user user-menu">
-                <a href="usuario">Criar</a>
-            </li>
-        
+        <li routerLinkActivate="active">
+            <a [routerLink]="['/usuario']">
+                <span class="glyphicon glyphicon-new-window"></span> Criar</a>
+        </li> 
     </ul>
 </div>
