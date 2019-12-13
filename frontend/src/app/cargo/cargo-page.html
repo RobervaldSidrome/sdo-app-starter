@@ -1,0 +1,81 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+      <ol class="breadcrumb">
+          <li><a [routerLink]="['/']">Super Ensino</a></li>
+          <li>Cargo</li>
+        </ol>
+        <form #form="ngForm" novalidate>
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="glyphicon glyphicon-hourglass"></i> Cadastrar Cargo
+              </h2>
+            </div>
+          </div>                
+
+          <div class="row invoice-info">
+            <div class="col-xs-12">
+              <p class="lead">Informações Gerais</p>
+            </div>
+            <div class="col-sm-3">
+              <label>Cargo</label>
+              <mt-input-container errorMessage="Campo obrigatório, somente números" label="cargo">
+                <input class="form-control" name="obra" pattern="^[0-9]*$" ngModel required placeholder="Nome do Cargo" autocomplete="off">
+              </mt-input-container>
+            </div>
+            <div class="col-sm-3">
+              <label>Setor</label>
+              <mt-input-container errorMessage="Campo obrigatório" label="nivel">
+                <select type="text" class="form-control" name="nivel" required ngModel placeholder="Nível" autocomplete="off">
+                  <option >Desenvolvimento</option>
+                </select>
+              </mt-input-container>
+            </div>
+           
+            <!--<div class="col-sm-6 col-xs-6">
+                <label>Funcionário</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="funcionario">
+                    <select type="text" class="form-control" name="funcionario" required ngModel placeholder="Nome do funcionário">
+                      <option>Marcos de Souza</option>
+                    </select>
+                </mt-input-container>
+            </div>-->
+            <!-- /.col -->
+          </div>
+          
+          <div class="row">
+              <div class="col-xs-12">
+                <label>Descrição</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="descricao">
+                  <textarea class="form-control" name="descricao" ngModel placeholder="Descrição do Cargo"></textarea>
+                </mt-input-container>
+              </div>
+            </div>
+          <!-- /.row -->
+
+          <!-- Table row 
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="lead">Itens do Pedido:</p>
+            </div>
+            
+          </div>-->
+          
+          <!-- /.row -->
+          <div class="row">
+            <div class="pull-right">
+                <button  (click)="form.reset()" type="button" class="btn btn-danger">
+                 <i class="fa fa-trash"></i> Limpar</button>
+                <button (click)="checkOrder(form.value)" class="btn btn-success" >
+                 <i class="glyphicon glyphicon-save"></i> Cadastrar
+              </button>
+            </div>
+          </div>
+        </form>
+    </section>
+</section>
+<!-- FIM DO CONTEUDO-->
