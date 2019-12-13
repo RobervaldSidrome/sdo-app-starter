@@ -7,4 +7,4 @@ export const environment = {
   production: false,
   token:''
 };
-export const BASE_URL= 'https://localhost:8080/api/'
+export const BASE_URL= 'https://plano-carreira-backend.herokuapp.com/api/'

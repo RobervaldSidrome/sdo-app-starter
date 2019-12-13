@@ -26,18 +26,15 @@ export class Services {
   }
 
   deleteUser(user) {
-    return this.http.delete(BASE_URL + "/" + user.id);
+    return this.http.delete(BASE_URL + user.id);
   }
 
   updateUser(user){
-    return this.http.put(BASE_URL + "/" + user.id, user);
+    return this.http.put(BASE_URL +  user.id, user);
   }
 
   createUser(user) {
     return this.auth.post(BASE_URL + 'user', user);
   }
-  login(user){
-    return this.auth.post(BASE_URL + '/login', user)
-}
 
 }

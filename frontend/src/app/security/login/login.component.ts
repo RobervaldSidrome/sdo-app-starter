@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Services } from 'app/providers/services';
 import { DataManager } from 'app/providers/manager';
+import { AuthService } from 'app/providers/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mt-login',
@@ -9,7 +11,7 @@ import { DataManager } from 'app/providers/manager';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private loginService: Services, private manager:DataManager) { }
+  constructor(private fb: FormBuilder, private loginService: AuthService, private manager:DataManager, private route:Router) { }
 
   loginForm: FormGroup;
 
@@ -21,10 +23,21 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    const data = {'email':this.loginForm.value.email,'senha':this.loginForm.value.password}
-    this.loginService.login(data).subscribe(user=>{
-      this.manager.setUser(user['token'],data.email)
-      
+    const data = {'user':this.loginForm.value.email,'senha':this.loginForm.value.password}
+    this.loginService.login(data).subscribe(info=>{
+      console.log(info)
+      if(info['token']){
+      this.manager.setUser(info['token'],data.user)
+      this.loginService.setToken()
+      this.route.navigateByUrl('/home')
+      }
+      else{
+        console.log(info)
+        alert("Erro ao fazer o login")
+      }
+    },err=>{
+      alert("Erro ao fazer o login")
+      console.log(err)
     })
   }
 
