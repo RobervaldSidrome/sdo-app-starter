@@ -1,0 +1,88 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+        <ol class="breadcrumb">
+          <li><a [routerLink]="['/']">SDO - Home</a></li>
+          <li>Usuário</li>
+        </ol>
+        <form #form="ngForm" novalidate>
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="glyphicon glyphicon-lock"></i> Listagem de usuários
+              </h2>
+            </div>
+          </div>                
+
+          <div class="row invoice-info">
+            <div class="col-xs-12">
+              <p class="lead">Informações Gerais:</p>
+            </div>
+            
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="hidden">Id</th>
+                  <th>Nome</th>
+                  <th>Login</th>
+                  <th>Password</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td class="hidden">{{user.id}}</td>
+                  <td>{{user.firstName}}</td>
+                  <td>{{user.lastName}}</td>
+                  <td>{{user.email}}</td>
+                  <td>
+                    <button [routerLink]="['/usuario']" (click)="updateUser(user)" class="btn btn-info">
+                        <i class="glyphicon glyphicon-refresh"></i> Alterar
+                    </button>
+                    <button class="btn btn-danger" (click)="deleteUser(user)">
+                        <i class="glyphicon glyphicon-trash"></i> Excluir
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+           
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+
+          <!-- Table row 
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="lead">Itens do Pedido:</p>
+            </div>
+            
+          </div>-->
+          
+          <!-- /.row -->
+
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-sm-6 col-xs-12">
+              <!--p class="lead">Formas de Pagamento:</p-->
+
+                <div class="form-group">
+                  
+                </div>
+
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6 col-xs-12">
+              <!-- Se precisar implementar component colocar aqui -->
+            </div>
+            <!-- /.col -->
+          </div>
+
+        </form>
+
+    </section>
+</section>
+<!-- FIM DO CONTEUDO--><!--INICIO DO CONTEUDO-->
