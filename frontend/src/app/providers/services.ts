@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {SDO_API} from '../app.api';
 import { User } from '../user/user.model';
-import { Observable } from 'rxjs/Observable'
 import {BASE_URL} from '../../environments/environment'
 import { AuthService } from './auth';
+
 
 
 // const httpOptions = {
@@ -35,6 +34,22 @@ export class Services {
 
   createUser(user) {
     return this.auth.post(BASE_URL + 'user', user);
+  }
+  createSetor(setor){
+    return this.auth.post(BASE_URL + 'setor', setor)
+  }
+  getSetores(id?){
+    let url = BASE_URL + 'setor'
+    if(id){
+      url = url + `/${id}`
+    }
+    return this.auth.get(url)
+  }
+  deleteSetores(id){
+    return this.auth.delete(BASE_URL + `setor/${id}`)
+  }
+  putSetores(id,data){
+    return this.auth.put(BASE_URL + `setor/${id}`,data)
   }
 
 }

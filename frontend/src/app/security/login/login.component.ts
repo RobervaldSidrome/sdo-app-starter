@@ -24,19 +24,20 @@ export class LoginComponent implements OnInit {
 
   login(){
     const data = {'user':this.loginForm.value.email,'senha':this.loginForm.value.password}
+    console.log(data)
     this.loginService.login(data).subscribe(info=>{
       console.log(info)
       if(info['token']){
-      this.manager.setUser(info['token'],data.user)
-      this.loginService.setToken()
-      this.route.navigateByUrl('/home')
+        this.manager.setUser(info['token'],data.user)
+        this.loginService.setToken()
+        window.location.href = '/home'
       }
       else{
         console.log(info)
         alert("Erro ao fazer o login")
       }
     },err=>{
-      alert("Erro ao fazer o login")
+      alert("Erro do servidor")
       console.log(err)
     })
   }

@@ -26,6 +26,8 @@ import { AuthGuard } from './providers/auth-guard';
 import { AuthService } from './providers/auth';
 import {DataManager} from './providers/manager'
 import { PasswordMatch } from './shared/password-match';
+import { ListSetorController } from './setor/list-setor-controller';
+import { EditSetorController } from './setor/edit-setor-controller';
 
 //import { NgxMaskModule } from 'ngx-mask';
 
@@ -41,6 +43,8 @@ import { PasswordMatch } from './shared/password-match';
     RatingComponent,
     CargoController,
     SetorController,
+    ListSetorController,
+    EditSetorController,
     UserComponent,
     AddUserComponent,
     UserDetailComponent,

@@ -9,6 +9,14 @@
     color: #fff;
     cursor: pointer
 }
+.user-drop{
+    display: none;
+}
+
+.user-menu:hover .user-drop{
+    display: block;
+    background-color: white;
+}
 
 @media (max-width: 991px){
     .navbar-custom-menu{
