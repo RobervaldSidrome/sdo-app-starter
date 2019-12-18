@@ -18,6 +18,7 @@ export class EditNivelController implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params.id
     this.service.getNiveis(this.id).subscribe((data:Nivel)=>{
+      console.log(this.nivel.nome)
       this.nivel = data
     })
   }

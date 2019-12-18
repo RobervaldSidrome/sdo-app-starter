@@ -39,22 +39,22 @@
             </div>
             <div class="form-group row"> 
               <div class="col-md-12">
-                <label class="col-form-label" for="cargo">Cargo</label>  
-                <mt-input-container errorMessage="Campo obrigatório" label="cargo">
-                  <select class="form-control" ngModel required name="cargo">
-                    <option>Desenvolvedor Front-end</option>
-                  </select>
-                </mt-input-container>  
+                <label>Cargo</label>
+              <mt-input-container errorMessage="Campo obrigatório" label="cargo">
+                <select type="text" class="form-control" name="cargo" (change)="getNiveis()" required [(ngModel)]="selectedCargo" placeholder="cargo" autocomplete="off">
+                  <option [ngValue]="cargo" *ngFor="let cargo of cargos">{{cargo.nome}}</option>
+                </select>
+              </mt-input-container> 
               </div>
             </div>
             <div class="form-group row">
               <div class="col-md-12">
-                <label class="col-form-label" for="nivel">Nível</label>
+                <label>Nivel</label>
                 <mt-input-container errorMessage="Campo obrigatório" label="nivel">
-                 <select class="form-control" ngModel required name="nivel">
-                    <option>Junior I</option>
-                 </select>
-                </mt-input-container>  
+                  <select type="text" class="form-control" name="nivel" required [(ngModel)]="selectedNivel" placeholder="nivel" autocomplete="off">
+                    <option [ngValue]="nivel" *ngFor="let nivel of niveis">{{nivel.nome}}</option>
+                  </select>
+                </mt-input-container>
               </div>
             </div> 
             <div class="form-group row">
@@ -70,7 +70,7 @@
             <div class="pull-right">
               <button (click)="form.reset()" type="button" class="btn btn-danger">
                 <i class="fa fa-trash"></i> Limpar</button>
-              <button (click)="checkOrder(form.value)" class="btn btn-success">
+              <button [disabled]="!form.valid" (click)="checkOrder(form.value)" class="btn btn-success">
                 <i class="glyphicon glyphicon-save"></i> Cadastrar
               </button>
             </div>

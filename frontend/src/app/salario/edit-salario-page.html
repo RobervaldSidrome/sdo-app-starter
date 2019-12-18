@@ -24,7 +24,7 @@
             <div class="col-sm-3">
               <label>Cargo</label>
               <mt-input-container errorMessage="Campo obrigatório" label="cargo">
-                <select type="text" class="form-control" name="cargo" required [(ngModel)]="this.cargos" placeholder="cargo" autocomplete="off" [compareWith]="compareId">
+                <select type="text" class="form-control" name="cargo" required [(ngModel)]="this.cargo" placeholder="cargo" autocomplete="off" [compareWith]="compareId">
                   <option [ngValue]="cargo" *ngFor="let cargo of cargos">{{cargo.nome}}</option>
                 </select>
               </mt-input-container>
@@ -32,22 +32,23 @@
             <div class="col-sm-3">
               <label>nivel</label>
               <mt-input-container errorMessage="Campo obrigatório" label="nivel">
-                <select type="text" class="form-control" name="nivel" required [(ngModel)]="this.niveis" placeholder="nivel" autocomplete="off" [compareWith]="compareId">
+                <select type="text" class="form-control" name="nivel" required [(ngModel)]="this.nivel" placeholder="nivel" autocomplete="off" [compareWith]="compareId">
                   <option [ngValue]="nivel" *ngFor="let nivel of niveis">{{nivel.nome}}</option>
                 </select>
               </mt-input-container>
             </div>
+            <div class="col-sm-3 col-xs-6">
+              <label>Salario</label>
+              <mt-input-container errorMessage="Campo obrigatório" label="salario">
+                <input  #salario id="salario" step="0.01" type="number" class="form-control" name="salario" [(ngModel)]="this.input" required placeholder="Salário" autocomplete="off">
+              </mt-input-container>
+            </div>
+             
+         
            
             <!-- /.col -->
           </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <label>Descrição</label>
-              <mt-input-container errorMessage="Campo obrigatório" label="descricao">
-                <textarea #descricao id="descricao" class="form-control" name="descricao" [(ngModel)]="this.cargo.descricao" placeholder="Descrição do cargo"></textarea>
-              </mt-input-container>
-            </div>
-          </div>
+  
           <!-- /.row -->
 
           <!-- Table row 
@@ -68,7 +69,7 @@
           <div class="pull-right">
             <button (click)="form.reset()" type="button" class="btn btn-danger">
               <i class="fa fa-trash"></i> Limpar</button>
-            <button [disabled]="!nome.value || !descricao.value" (click)="submit(form.value)" class="btn btn-success">
+            <button [disabled]="!form.valid" (click)="submit(form.value)" class="btn btn-success">
               <i class="glyphicon glyphicon-save"></i> Editar
             </button>
           </div>

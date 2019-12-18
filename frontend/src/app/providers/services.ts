@@ -40,10 +40,13 @@ export class Services {
   createSetor(setor: any){
     return this.auth.post(BASE_URL + 'setor', setor)
   }
-  getSetores(id?: string){
+  getSetores(id?: string, query?:string){
     let url = BASE_URL + 'setor'
     if(id){
       url = url + `/${id}`
+    }
+    if(query){
+      url = url + `?${query}`
     }
     return this.auth.get(url)
   }
@@ -62,7 +65,7 @@ export class Services {
     if(id){
       url = url + `/${id}`
     }
-    return this.auth.get(url)
+    return this.auth.get(url + '?populate=setor')
   }
   deleteCargo(id: string){
     return this.auth.delete(BASE_URL + `cargo/${id}`)
@@ -74,12 +77,17 @@ export class Services {
   createSalario(Salario: any){
     return this.auth.post(BASE_URL + 'cargonivel', Salario)
   }
-  getSalarios(id?: string){
+  getSalarios(id?: string, query?: string){
     let url = BASE_URL + 'cargonivel'
     if(id){
       url = url + `/${id}`
     }
-    return this.auth.get(url)
+    if(query){
+      url = url + `?${query}`
+      console.log(url)
+      return this.auth.get(url + '&populate=cargo' + '&populate=nivel')
+    }
+    return this.auth.get(url + '?populate=cargo' + '&populate=nivel')
   }
   deleteSalario(id: string){
     return this.auth.delete(BASE_URL + `cargonivel/${id}`)

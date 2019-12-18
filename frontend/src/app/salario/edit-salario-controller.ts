@@ -10,24 +10,27 @@ import { Nivel } from 'app/nivel/nivel-model';
 @Component({
   selector: 'mt-edit-salario',
   templateUrl: './edit-salario-page.html',
-  styleUrls:['./edit-salario-style.css']
+  styleUrls:['./salario-style.css']
 })
 export class EditSalarioController implements OnInit {
   @ViewChild('form') form:NgForm
   id: string
   cargos: Array<Cargo> = []
   niveis: Array<Nivel> = []
+  input: any = ""
   nivel: Nivel = {nome: "", _id: "", createdAt:"", updatedAt:""}
   setor: Setor = {nome: "", descricao:"", _id: "", createdAt:"", updatedAt:""}
   cargo: Cargo = {nome: "", descricao:"", _id: "", createdAt:"", updatedAt:"", setor:this.setor}
-  salario: Salario = {cargo: this.cargo,nivel:this.nivel,salario:NaN,_id:"", createdAt:"",updatedAt:""}
+  salario: Salario = {cargo: this.cargo,nivel:this.nivel,salario:undefined,_id:"", createdAt:"",updatedAt:""}
   constructor(private service:Services, private route:ActivatedRoute, private routes:Router) { }
 
   ngOnInit() {
-    
     this.id = this.route.snapshot.params.id
-    this.service.getSalarios(this.id).subscribe((data:Salario)=>{
+    this.service.getSalarios(this.id).subscribe((data:Salario)=>{ 
       this.salario = data
+      this.input = data.salario
+      this.cargo = data.cargo
+      this.nivel = data.nivel
     })
     this.service.getCargos().subscribe((data:Array<Cargo>)=>{
       this.cargos = data
@@ -41,10 +44,8 @@ export class EditSalarioController implements OnInit {
 
   }
   submit(form:Salario){
-    console.log(form)
     this.service.putSalario(this.id,form).subscribe(data=>{
-      console.log(data)
-      this.routes.navigateByUrl('/salario')
+      this.routes.navigateByUrl('/avanco')
     }, err=>{
       console.log(err)
     })
