@@ -28,6 +28,13 @@ import {DataManager} from './providers/manager'
 import { PasswordMatch } from './shared/password-match';
 import { ListSetorController } from './setor/list-setor-controller';
 import { EditSetorController } from './setor/edit-setor-controller';
+import { ListCargoController } from './cargo/list-cargo-controller';
+import { EditCargoController } from './cargo/edit-cargo-controller';
+import { ListNivelController } from './nivel/list-nivel-controller';
+import { EditNivelController } from './nivel/edit-nivel-controller';
+import { NivelController } from './nivel/nivel-controller';
+import { EditSalarioController } from './salario/edit-salario-controller';
+import { ListSalarioController } from './salario/list-salario-controller';
 
 //import { NgxMaskModule } from 'ngx-mask';
 
@@ -37,14 +44,22 @@ import { EditSetorController } from './setor/edit-setor-controller';
     AppComponent,
     HeaderComponent,
     SalarioController,
+    EditSalarioController,
+    ListSalarioController,
     HomeComponent,
     InputComponent,
     RadioComponent,
     RatingComponent,
     CargoController,
+    ListCargoController,
+    EditCargoController,
     SetorController,
+    ListNivelController,
+    NivelController,
+    EditNivelController,
     ListSetorController,
     EditSetorController,
+
     UserComponent,
     AddUserComponent,
     UserDetailComponent,

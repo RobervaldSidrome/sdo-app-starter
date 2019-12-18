@@ -1,27 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Services } from 'app/providers/services';
+import { NgForm } from '@angular/forms';
+import { Cargo } from 'app/cargo/cargo-model';
+import { Nivel } from 'app/nivel/nivel-model';
 
 @Component({
   selector: 'mt-salario',
   templateUrl: './salario-page.html',
-  styleUrls:['./salario-style.css']
+  styleUrls: ['./salario-style.css']
 })
 export class SalarioController implements OnInit {
+  @ViewChild('form') form:NgForm
+  cargos: Array<Cargo> = []
+  niveis: Array<Nivel> = []
 
-  constructor(private fb: FormBuilder) { }
 
-  avancoObraForm: FormGroup;
+  constructor(private service:Services) { }
 
   ngOnInit() {
-    this.avancoObraForm = this.fb.group({
-      numeroObra: this.fb.control('', [Validators.required]),
-      subObra: this.fb.control('', [Validators.required]),
-      processo: this.fb.control('', [Validators.required]),
-      data: this.fb.control('', [Validators.required]),
-      hora: this.fb.control('', [Validators.required]),
-      statusObra: this.fb.control('', [Validators.required]),
-      turno: this.fb.control('', [Validators.required])
+    this.service.getCargos().subscribe((data:Array<Cargo>)=>{
+      console.log(data)
+      this.cargos = data
     })
+    this.service.getNiveis().subscribe((data:Array<Nivel>)=>{
+      console.log(data)
+      this.niveis = data
+    })
+  }
+  submit(form: any){
+    this.service.createSalario(form).subscribe(data=>{
+      window.location.reload()
+      console.log(data)
+    })
+
   }
 
 }

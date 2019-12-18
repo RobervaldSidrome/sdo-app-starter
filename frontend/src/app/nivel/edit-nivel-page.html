@@ -5,14 +5,14 @@
 <section class="content">
   <section class="invoice">
         <ol class="breadcrumb">
-          <li><a [routerLink]="['/setor']">Setores</a></li>
-          <li>Setor</li>
+          <li><a [routerLink]="['/nivel']">Níveis</a></li>
+          <li>Nível</li>
         </ol>
         <form #form="ngForm">
           <div class="row">
             <div class="col-xs-12">
               <h2 class="page-header">
-                <i class="glyphicon glyphicon-retweet"></i> Editar Setor
+                <i class="glyphicon glyphicon-retweet"></i> Editar Nível
               </h2>
             </div>
           </div>                
@@ -21,22 +21,13 @@
             <div class="col-xs-12">
               <p class="lead">Informações Gerais</p>
             </div>
-            <div class="col-sm-3 col-xs-6">
-              <label>Nome do Setor</label>
+            <div class="col-sm-12">
+              <label>Nome do Nível</label>
               <mt-input-container errorMessage="Campo obrigatório" label="nome">
-                <input #nome id="nome" class="form-control" name="nome" [(ngModel)]="this.setor.nome" required placeholder="Setor" autocomplete="off">
+                <input #nome id="nome" class="form-control" name="nome" [(ngModel)]="this.nivel.nome" required placeholder="nivel" autocomplete="off">
               </mt-input-container>
             </div>
            
-            <!-- /.col -->
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <label>Descrição</label>
-              <mt-input-container errorMessage="Campo obrigatório" label="descricao">
-                <textarea #descricao id="descricao" class="form-control" name="descricao" [(ngModel)]="this.setor.descricao" placeholder="Descrição do setor"></textarea>
-              </mt-input-container>
-            </div>
           </div>
           <!-- /.row -->
 
@@ -58,7 +49,7 @@
           <div class="pull-right">
             <button (click)="form.reset()" type="button" class="btn btn-danger">
               <i class="fa fa-trash"></i> Limpar</button>
-            <button [disabled]="!nome.value || !descricao.value" (click)="submit(form.value)" class="btn btn-success">
+            <button [disabled]="!nome.value" (click)="submit(form.value)" class="btn btn-success">
               <i class="glyphicon glyphicon-save"></i> Editar
             </button>
           </div>

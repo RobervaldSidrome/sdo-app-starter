@@ -6,6 +6,7 @@ import { AuthService } from './auth';
 
 
 
+
 // const httpOptions = {
 //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 // };
@@ -24,32 +25,84 @@ export class Services {
     return this.http.get<User[]>(BASE_URL);
   }
 
-  deleteUser(user) {
+  deleteUser(user: any) {
     return this.http.delete(BASE_URL + user.id);
   }
 
-  updateUser(user){
+  putUser(user: any){
     return this.http.put(BASE_URL +  user.id, user);
   }
 
-  createUser(user) {
+  createUser(user: any) {
     return this.auth.post(BASE_URL + 'user', user);
   }
-  createSetor(setor){
+
+  createSetor(setor: any){
     return this.auth.post(BASE_URL + 'setor', setor)
   }
-  getSetores(id?){
+  getSetores(id?: string){
     let url = BASE_URL + 'setor'
     if(id){
       url = url + `/${id}`
     }
     return this.auth.get(url)
   }
-  deleteSetores(id){
+  deleteSetor(id: string){
     return this.auth.delete(BASE_URL + `setor/${id}`)
   }
-  putSetores(id,data){
+  putSetor(id: string,data: any){
     return this.auth.put(BASE_URL + `setor/${id}`,data)
+  }
+
+  createCargo(Cargo: any){
+    return this.auth.post(BASE_URL + 'cargo', Cargo)
+  }
+  getCargos(id?: string){
+    let url = BASE_URL + 'cargo'
+    if(id){
+      url = url + `/${id}`
+    }
+    return this.auth.get(url)
+  }
+  deleteCargo(id: string){
+    return this.auth.delete(BASE_URL + `cargo/${id}`)
+  }
+  putCargo(id: string,data: any){
+    return this.auth.put(BASE_URL + `cargo/${id}`,data)
+  }
+
+  createSalario(Salario: any){
+    return this.auth.post(BASE_URL + 'cargonivel', Salario)
+  }
+  getSalarios(id?: string){
+    let url = BASE_URL + 'cargonivel'
+    if(id){
+      url = url + `/${id}`
+    }
+    return this.auth.get(url)
+  }
+  deleteSalario(id: string){
+    return this.auth.delete(BASE_URL + `cargonivel/${id}`)
+  }
+  putSalario(id: string,data: any){
+    return this.auth.put(BASE_URL + `cargonivel/${id}`,data)
+  }
+
+  createNivel(Nivel: any){
+    return this.auth.post(BASE_URL + 'nivel', Nivel)
+  }
+  getNiveis(id?: string){
+    let url = BASE_URL + 'nivel'
+    if(id){
+      url = url + `/${id}`
+    }
+    return this.auth.get(url)
+  }
+  deleteNivel(id: string){
+    return this.auth.delete(BASE_URL + `nivel/${id}`)
+  }
+  putNivel(id: string,data: any){
+    return this.auth.put(BASE_URL + `nivel/${id}`,data)
   }
 
 }

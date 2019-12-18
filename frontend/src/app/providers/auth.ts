@@ -21,29 +21,27 @@ export class AuthService {
         return false
        
     }
-    login(user){
+    login(user: any){
        return this.http.post(LOGIN_URL + 'login', user)
     }
     setToken(){
         this.token = this.manager.getToken()
     }
-    get(URL){
+    get(URL: string){
         const header = new HttpHeaders({
             'Content-Type':  'application/json',
             'Authorization': this.token
         })
-        console.log(header)
         return this.http.get(URL,{headers:header})
     }
-    post(URL,data){
-        console.log(this.token)
+    post(URL: string,data: any){
         const header = new HttpHeaders({
             'Content-Type':  'application/json',
             'Authorization': this.token
         })
         return this.http.post(URL,data,{headers:header})
     }
-    delete(URL){
+    delete(URL: string){
         const header = new HttpHeaders({
             'Content-Type':  'application/json',
             'Authorization': this.token
@@ -51,7 +49,7 @@ export class AuthService {
         return this.http.delete(URL,{headers:header})
 
     }
-    put(URL,data){
+    put(URL: string,data: any){
         const header = new HttpHeaders({
             'Content-Type':  'application/json',
             'Authorization': this.token

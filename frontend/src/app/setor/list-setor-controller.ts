@@ -21,8 +21,7 @@ export class ListSetorController implements OnInit {
     })
   }
   delete(id){
-    console.log('entrou')
-    this.service.deleteSetores(id).subscribe(data=>{
+    this.service.deleteSetor(id).subscribe(data=>{
       this.getSetores()
     })
     
