@@ -18,6 +18,7 @@ export class FuncionarioController implements OnInit {
   cargoNiveis: Array<any> = []
   selectedCargo: Cargo
   selectedNivel: Nivel
+  selectedCargoNivel: Salario
   constructor(private service:Services) { }
 
   ngOnInit() {
@@ -28,14 +29,17 @@ export class FuncionarioController implements OnInit {
   getNiveis(){
     this.service.getSalarios("",`cargo=${this.selectedCargo._id}`).subscribe((data: Array<any>)=>{
       this.niveis = data.map(element=>element = element.nivel)
+    }) 
+  }
+
+  setCargoNivel(){
+    this.service.getSalarios("",`cargo=${this.selectedCargo._id}&nivel=${this.selectedNivel._id}`).subscribe((data:Salario)=>{
+      this.selectedCargoNivel = data
     })
-    
   }
   submit(form: any){
-    this.service.createCargo(form).subscribe(data=>{
-      window.location.reload()
-      console.log(data)
-    })
+    const funcionario: Funcionario = {matricula:form.matricula,nome:form.nome,cargonivel:this.selectedCargoNivel,email:form.email}
+    console.log(funcionario)
 
   }
 

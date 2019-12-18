@@ -113,4 +113,27 @@ export class Services {
     return this.auth.put(BASE_URL + `nivel/${id}`,data)
   }
 
+  createFuncionario(Funcionario: any){
+    return this.auth.post(BASE_URL + 'funcionario', Funcionario)
+  }
+  getFuncionarios(id?: string, query?: string){
+    let url = BASE_URL + 'funcionario'
+    if(id){
+      url = url + `/${id}`
+    }
+    if(query){
+      url = url + `?${query}`
+      console.log(url)
+      return this.auth.get(url + '&populate=cargonivel')
+    }
+    return this.auth.get(url + '?populate=cargonivel')
+  }
+  deleteFuncionario(id: string){
+    return this.auth.delete(BASE_URL + `funcionario/${id}`)
+  }
+  putFuncionario(id: string,data: any){
+    return this.auth.put(BASE_URL + `funcionario/${id}`,data)
+  }
+  
+
 }

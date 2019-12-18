@@ -1,28 +1,28 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Cargo } from './cargo-model'
+import { Funcionario } from './funcionario-model'
 import { Services } from 'app/providers/services';
 
 @Component({
-  selector: 'mt-list-cargo',
-  templateUrl: './list-cargo-page.html',
-  styleUrls:['./list-cargo-style.css']
+  selector: 'mt-list-funcionario',
+  templateUrl: './list-funcionario-page.html',
+  styleUrls:['./list-funcionario-style.css']
 })
-export class ListCargoController implements OnInit {
-  cargos: Array<Object> = []
+export class ListfuncionarioController implements OnInit {
+  funcionarios: Array<Object> = []
   constructor(private service:Services) { }
 
   ngOnInit() {
-    this.getCargos()
+    this.getFuncionarios()
   }
-  getCargos(){
-    this.service.getCargos().subscribe((data:Array<Cargo>)=>{
-      this.cargos = data
+  getFuncionarios(){
+    this.service.getFuncionarios().subscribe((data:Array<Funcionario>)=>{
+      this.funcionarios = data
     })
   }
   delete(id){
-    this.service.deleteCargo(id).subscribe(data=>{
-      this.getCargos()
+    this.service.deleteFuncionario(id).subscribe(data=>{
+      this.getFuncionarios()
     })
     
   }
