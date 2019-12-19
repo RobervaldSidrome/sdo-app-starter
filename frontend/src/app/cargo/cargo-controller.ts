@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Cargo } from './cargo-model';
 import { Setor } from 'app/setor/setor-model';
 import { Services } from 'app/providers/services';
 import { NgForm } from '@angular/forms';
@@ -24,7 +23,6 @@ export class CargoController implements OnInit {
     form.setor = this.setores.find((setor)=>{return form.setor === setor._id})
     this.service.createCargo(form).subscribe(data=>{
       window.location.reload()
-      console.log(data)
     })
 
   }

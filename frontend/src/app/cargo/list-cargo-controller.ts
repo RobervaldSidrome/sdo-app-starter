@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Cargo } from './cargo-model'
 import { Services } from 'app/providers/services';
 
@@ -9,7 +8,7 @@ import { Services } from 'app/providers/services';
   styleUrls:['./list-cargo-style.css']
 })
 export class ListCargoController implements OnInit {
-  cargos: Array<Object> = []
+  cargos: Array<any> = []
   constructor(private service:Services) { }
 
   ngOnInit() {
@@ -18,6 +17,13 @@ export class ListCargoController implements OnInit {
   getCargos(){
     this.service.getCargos().subscribe((data:Array<Cargo>)=>{
       this.cargos = data
+      this.cargos = this.cargos.map(cargo=>{
+        if(cargo.setor==null){
+          cargo.setor = {nome:"Não Atribuído"}
+          return cargo
+        }
+        return cargo
+      })
     })
   }
   delete(id){

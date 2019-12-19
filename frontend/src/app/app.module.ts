@@ -18,8 +18,6 @@ import { SalarioController } from './salario/salario-controller';
 import { SetorController } from './setor/setor-controller';
 import { FuncionarioController } from './funcionario/funcionario-controller';
 import { LoginComponent } from './security/login/login.component';
-import { UserComponent } from './user/user.component';
-import { AddUserComponent } from './user/add-user.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
 import {Services} from './providers/services'
 import { AuthGuard } from './providers/auth-guard';
@@ -35,6 +33,9 @@ import { EditNivelController } from './nivel/edit-nivel-controller';
 import { NivelController } from './nivel/nivel-controller';
 import { EditSalarioController } from './salario/edit-salario-controller';
 import { ListSalarioController } from './salario/list-salario-controller';
+import { ListFuncionarioController } from './funcionario/list-funcionario-controller';
+import { EditFuncionarioController } from './funcionario/edit-funcionario-controller';
+import { FuncionarioService } from './funcionario/funcionario.service';
 
 //import { NgxMaskModule } from 'ngx-mask';
 
@@ -53,19 +54,17 @@ import { ListSalarioController } from './salario/list-salario-controller';
     CargoController,
     ListCargoController,
     EditCargoController,
-    SetorController,
     ListNivelController,
     NivelController,
     EditNivelController,
+    SetorController,
     ListSetorController,
     EditSetorController,
-
-    UserComponent,
-    AddUserComponent,
     UserDetailComponent,
     PasswordMatch,
-   // UserService,
     FuncionarioController,
+    ListFuncionarioController,
+    EditFuncionarioController,
     LoginComponent
   ],
   imports: [
@@ -73,7 +72,6 @@ import { ListSalarioController } from './salario/list-salario-controller';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    //NgxMaskModule.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
@@ -81,7 +79,8 @@ import { ListSalarioController } from './salario/list-salario-controller';
     Services,
     AuthService,
     AuthGuard,
-    DataManager],
+    DataManager,
+    FuncionarioService],
 
   bootstrap: [AppComponent]
 })

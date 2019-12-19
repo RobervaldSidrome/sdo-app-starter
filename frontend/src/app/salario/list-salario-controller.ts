@@ -9,7 +9,7 @@ import { Salario } from 'app/salario/salario-model';
   styleUrls:['./list-salario-style.css']
 })
 export class ListSalarioController implements OnInit {
-  salarios: Array<Object> = []
+  salarios: Array<any> = []
   constructor(private service:Services) { }
 
   ngOnInit() {
@@ -17,8 +17,11 @@ export class ListSalarioController implements OnInit {
   }
   getSalarios(){
     this.service.getSalarios().subscribe((data:Array<Salario>)=>{
-      console.log(data)
       this.salarios = data
+      for(let salario of this.salarios){
+        salario.cargo = salario.cargo?salario.cargo.nome:"Não atribuído"
+        salario.nivel = salario.nivel?salario.nivel.nome:"Não Atribuído"
+      }
     })
   }
   delete(id){

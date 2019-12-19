@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Services } from 'app/providers/services';
 import { Cargo } from 'app/cargo/cargo-model';
 import { Nivel } from 'app/nivel/nivel-model';
-import { Funcionario } from './funcionario-model';
 import { Salario } from 'app/salario/salario-model';
 
 @Component({
@@ -34,13 +33,13 @@ export class FuncionarioController implements OnInit {
 
   setCargoNivel(){
     this.service.getSalarios("",`cargo=${this.selectedCargo._id}&nivel=${this.selectedNivel._id}`).subscribe((data:Salario)=>{
-      this.selectedCargoNivel = data
+      this.selectedCargoNivel = data[0]._id
     })
   }
   submit(form: any){
-    const funcionario: Funcionario = {matricula:form.matricula,nome:form.nome,cargonivel:this.selectedCargoNivel,email:form.email}
-    console.log(funcionario)
-
+    const funcionario: any = {matricula:form.matricula,nome:form.nome,cargoNivel:this.selectedCargoNivel,email:form.email}
+    this.service.createFuncionario(funcionario).subscribe(data=>{
+    })
   }
 
 }

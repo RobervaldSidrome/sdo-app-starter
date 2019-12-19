@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Cargo } from './cargo-model'
 import { Services } from 'app/providers/services';
-import { Route, Params, Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Setor } from 'app/setor/setor-model';
 
 @Component({
@@ -30,15 +30,13 @@ export class EditCargoController implements OnInit {
     })
   }
   compareId(item1: Setor,item2: Setor){
-    return item1._id === item2._id
+    if(item1 && item2) return item1._id === item2._id
 
   }
   submit(form:Cargo){
-    console.log(form)
     this.service.putCargo(this.id,form).subscribe(data=>{
       this.routes.navigateByUrl('/cargo')
     }, err=>{
-      console.log(err)
     })
     
     

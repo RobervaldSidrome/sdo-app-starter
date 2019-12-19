@@ -1,5 +1,4 @@
 <!--INICIO DO CONTEUDO-->
-<mt-cargo></mt-cargo>
 <section class="content-header">
 </section>
 
@@ -8,13 +7,15 @@
   <section class="invoice">
         <form #form="ngForm" novalidate>
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
               <h2 class="page-header">
                 <i class="glyphicon glyphicon-lock"></i> Listagem de funcionários
               </h2>
             </div>
+            <div class="col-xs-6 text-right">
+              <a [routerLink]="['/funcionario/criar']" class="btn btn-primary">Adicionar Funcionário</a>
+            </div>
           </div>                
-
           <div class="row invoice-info">
             <div class="col-xs-12">
               <p class="lead">Informações Gerais:</p>
@@ -33,11 +34,12 @@
               <tbody>
                 <tr *ngFor="let funcionario of funcionarios">
                   <td class="hidden">{{funcionario._id}}</td>
-                  <td class="col-md-3">{{funcionario.nome}}</td>
-                  <td class="col-md-3">{{funcionario.cargo}}</td>
-                  <td class="col-md-3">{{funcionario.nivel}}</td>
+                  <td class="col-md-1">{{funcionario.matricula}}</td>
+                  <td class="col-md-4">{{funcionario.nome}}</td>
+                  <td class="col-md-2">{{funcionario.cargo}}</td>
+                  <td class="col-md-2">{{funcionario.nivel}}</td>
                   <td class="col-md-3 text-right"> 
-                    <button [routerLink]="['/funcionario',funcionario._id]"  class="btn btn-info">
+                    <button (click)="navigate(funcionario)"  class="btn btn-info">
                         <i class="glyphicon glyphicon-refresh"></i> Alterar
                     </button>
                     <button (click)="delete(funcionario._id)" class="btn btn-danger">
@@ -46,41 +48,9 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
-           
-            <!-- /.col -->
+            </table>>
           </div>
-          <!-- /.row -->
-
-          <!-- Table row 
-          <div class="row">
-            <div class="col-xs-12">
-              <p class="lead">Itens do Pedido:</p>
-            </div>
-            
-          </div>-->
-          
-          <!-- /.row -->
-
-          <div class="row">
-            <!-- accepted payments column -->
-            <div class="col-sm-6 col-xs-12">
-              <!--p class="lead">Formas de Pagamento:</p-->
-
-                <div class="form-group">
-                  
-                </div>
-
-            </div>
-            <!-- /.col -->
-            <div class="col-sm-6 col-xs-12">
-              <!-- Se precisar implementar component colocar aqui -->
-            </div>
-            <!-- /.col -->
-          </div>
-
         </form>
-
     </section>
 </section>
 <!-- FIM DO CONTEUDO--><!--INICIO DO CONTEUDO-->

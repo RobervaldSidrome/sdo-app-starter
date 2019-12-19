@@ -12,7 +12,6 @@ export class DataManager{
         this.STORAGE['user'] = JSON.parse(localStorage.getItem('user'))
     }
     getUser(){
-        console.log(this.STORAGE['user'])
         return this.STORAGE['user']
     }
     clearData(){

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Services } from 'app/providers/services';
-import { Route, Params, Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Nivel } from './nivel-model';
 
 @Component({
@@ -18,7 +18,6 @@ export class EditNivelController implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params.id
     this.service.getNiveis(this.id).subscribe((data:Nivel)=>{
-      console.log(this.nivel.nome)
       this.nivel = data
     })
   }
@@ -27,7 +26,6 @@ export class EditNivelController implements OnInit {
     this.service.putNivel(this.id,form).subscribe(data=>{
       this.routes.navigateByUrl('/nivel')
     }, err=>{
-      console.log(err)
     })
     
     

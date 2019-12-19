@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../user/user.model';
 import {BASE_URL} from '../../environments/environment'
 import { AuthService } from './auth';
 
@@ -16,25 +15,6 @@ export class Services {
 
   constructor(private http:HttpClient,private auth:AuthService ) {
       
-  }
-
-
-  //private BASE_URL = '/api';
-
-  getUsers() {   
-    return this.http.get<User[]>(BASE_URL);
-  }
-
-  deleteUser(user: any) {
-    return this.http.delete(BASE_URL + user.id);
-  }
-
-  putUser(user: any){
-    return this.http.put(BASE_URL +  user.id, user);
-  }
-
-  createUser(user: any) {
-    return this.auth.post(BASE_URL + 'user', user);
   }
 
   createSetor(setor: any){
@@ -84,7 +64,6 @@ export class Services {
     }
     if(query){
       url = url + `?${query}`
-      console.log(url)
       return this.auth.get(url + '&populate=cargo' + '&populate=nivel')
     }
     return this.auth.get(url + '?populate=cargo' + '&populate=nivel')
@@ -123,10 +102,9 @@ export class Services {
     }
     if(query){
       url = url + `?${query}`
-      console.log(url)
-      return this.auth.get(url + '&populate=cargonivel')
+      return this.auth.get(url + '&populate=cargoNivel')
     }
-    return this.auth.get(url + '?populate=cargonivel')
+    return this.auth.get(url + '?populate=cargoNivel&populate=cargoNivel.cargo&populate=cargoNivel.nivel')
   }
   deleteFuncionario(id: string){
     return this.auth.delete(BASE_URL + `funcionario/${id}`)

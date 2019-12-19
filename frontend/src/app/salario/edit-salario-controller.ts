@@ -29,8 +29,8 @@ export class EditSalarioController implements OnInit {
     this.service.getSalarios(this.id).subscribe((data:Salario)=>{ 
       this.salario = data
       this.input = data.salario
-      this.cargo = data.cargo
-      this.nivel = data.nivel
+      this.cargo = data.cargo?data.cargo:this.cargo
+      this.nivel = data.nivel?data.nivel:this.nivel
     })
     this.service.getCargos().subscribe((data:Array<Cargo>)=>{
       this.cargos = data

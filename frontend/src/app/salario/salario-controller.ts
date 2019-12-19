@@ -19,18 +19,15 @@ export class SalarioController implements OnInit {
 
   ngOnInit() {
     this.service.getCargos().subscribe((data:Array<Cargo>)=>{
-      console.log(data)
       this.cargos = data
     })
     this.service.getNiveis().subscribe((data:Array<Nivel>)=>{
-      console.log(data)
       this.niveis = data
     })
   }
   submit(form: any){
     this.service.createSalario(form).subscribe(data=>{
       window.location.reload()
-      console.log(data)
     })
 
   }

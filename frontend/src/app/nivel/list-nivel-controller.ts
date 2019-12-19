@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Services } from 'app/providers/services';
 import { Nivel } from './nivel-model';
 
@@ -21,7 +20,7 @@ export class ListNivelController implements OnInit {
     })
   }
   delete(id){
-    this.service.deleteCargo(id).subscribe(data=>{
+    this.service.deleteNivel(id).subscribe(data=>{
       this.getNiveis()
     })
     

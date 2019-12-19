@@ -19,7 +19,6 @@ export class NivelController implements OnInit {
   submit(form: any){
     this.service.createNivel(form).subscribe(data=>{
       window.location.reload()
-      console.log(data)
     })
 
   }

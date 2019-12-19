@@ -4,10 +4,6 @@ import { DataManager } from './manager';
 import { LOGIN_URL } from '../../environments/environment'
 
 
-// const httpOptions = {
-//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
-
 @Injectable()
 export class AuthService {
     token:string

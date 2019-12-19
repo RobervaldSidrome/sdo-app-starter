@@ -1,0 +1,81 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+  </section>
+  
+  <section class="content">
+    <section class="invoice">
+          <ol class="breadcrumb">
+            <li><a [routerLink]="['/']">Super Ensino</a></li>
+            <li>Funcionário</li>
+          </ol>
+          <form #form="ngForm" novalidate>
+            <div class="form-group row">
+              <div class="col-xs-12">
+                <h2 class="page-header">
+                  <i class="glyphicon glyphicon-user"></i> Cadastrar Funcionário
+                </h2>
+              </div>
+            </div>                
+            <div class="row invoice-info">
+              <div class="col-xs-12">
+                <p class="lead">Informações Gerais</p>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+              <label class="col-form-label" for="matricula">Matrícula</label>
+              <mt-input-container errorMessage="Campo obrigatório, somente numeros" label="matricula">
+                  <input class="form-control" name="matricula" pattern="^[0-9]*$" [(ngModel)]="this.funcionario.matricula" required autocomplete="off">
+              </mt-input-container>  
+            </div>
+           </div>
+            <div class="form-group row">   
+              <div class="col-md-12">
+                <label class="col-form-label test" for="nome">Nome</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="nome"> 
+                  <input class="form-control" name="nome" [(ngModel)]="this.funcionario.nome" required autocomplete="off">
+                </mt-input-container>  
+              </div>
+            </div>
+            <div class="form-group row"> 
+              <div class="col-md-12">
+                <label>Cargo</label>
+              <mt-input-container errorMessage="Campo obrigatório" label="cargo">
+                <select type="text" class="form-control" name="cargo" (change)="getNiveis()" required [(ngModel)]="selectedCargo" [compareWith]="compareId" placeholder="cargo" autocomplete="off">
+                  <option [ngValue]="cargo" *ngFor="let cargo of cargos">{{cargo.nome}}</option>
+                </select>
+              </mt-input-container> 
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label>Nivel</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="nivel">
+                  <select #nivel type="text" class="form-control" name="nivel" (change)="setCargoNivel()" required [(ngModel)]="selectedNivel" [compareWith]="compareId" placeholder="nivel" autocomplete="off">
+                    <option [ngValue]="nivel" *ngFor="let nivel of niveis">{{nivel.nome}}</option>
+                  </select>
+                </mt-input-container>
+              </div>
+            </div> 
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label class="col-form-label" for="email">E-mail</label>
+                <mt-input-container errorMessage="Campo obrigatório" label="email">
+                  <input class="form-control" name="email" [(ngModel)]="this.funcionario.email" required autocomplete="off">
+                </mt-input-container>
+              </div>    
+            </div>
+          </form>
+          <div class="form-group row">
+            <div class="pull-right">
+              <button (click)="form.reset()" type="button" class="btn btn-danger">
+                <i class="fa fa-trash"></i> Limpar</button>
+              <button [disabled]="!form.valid" (click)="submit(form.value)" class="btn btn-success">
+                <i class="glyphicon glyphicon-save"></i> Cadastrar
+              </button>
+            </div>
+          </div>
+  
+      </section>
+  </section>
+  <!-- FIM DO CONTEUDO-->

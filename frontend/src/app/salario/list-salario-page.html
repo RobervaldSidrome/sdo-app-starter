@@ -33,8 +33,8 @@
                 <tr *ngFor="let salario of salarios">
                   <td class="hidden">{{salario._id}}</td>
                   
-                  <td class="col-md-3">{{salario.cargo.nome}}</td>
-                  <td class="col-md-3">{{salario.nivel.nome}}</td>
+                  <td class="col-md-3">{{salario.cargo}}</td>
+                  <td class="col-md-3">{{salario.nivel}}</td>
                   <td class="col-md-3">{{salario.salario}}</td>
                   <td class="col-md-3 text-right"> 
                     <button [routerLink]="['/avanco',salario._id]"  class="btn btn-info">

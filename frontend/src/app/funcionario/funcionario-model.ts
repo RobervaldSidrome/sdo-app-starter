@@ -2,9 +2,10 @@ import { Salario } from "app/salario/salario-model";
 
 class Funcionario{
     constructor(
+        public _id: string,
         public matricula: number,
         public nome: string,
-        public cargonivel: Salario,
+        public cargoNivel: Salario,
         public email: string
 
     ){}
