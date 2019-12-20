@@ -7,5 +7,5 @@ export const environment = {
   production: false,
   token:''
 };
-export const BASE_URL= 'http://plano-carreira-backend.herokuapp.com/api/'
-export const LOGIN_URL = 'http://plano-carreira-backend.herokuapp.com/auth/'
+export const BASE_URL= 'https://plano-carreira-backend.herokuapp.com/api/'
+export const LOGIN_URL = 'https://plano-carreira-backend.herokuapp.com/auth/'
