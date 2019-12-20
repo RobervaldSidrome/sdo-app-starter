@@ -18,14 +18,24 @@ import { SalarioController } from './salario/salario-controller';
 import { SetorController } from './setor/setor-controller';
 import { FuncionarioController } from './funcionario/funcionario-controller';
 import { LoginComponent } from './security/login/login.component';
-import { UserComponent } from './user/user.component';
-import { AddUserComponent } from './user/add-user.component';
 import { UserDetailComponent } from './header/user-detail/user-detail.component';
 import {Services} from './providers/services'
 import { AuthGuard } from './providers/auth-guard';
 import { AuthService } from './providers/auth';
 import {DataManager} from './providers/manager'
 import { PasswordMatch } from './shared/password-match';
+import { ListSetorController } from './setor/list-setor-controller';
+import { EditSetorController } from './setor/edit-setor-controller';
+import { ListCargoController } from './cargo/list-cargo-controller';
+import { EditCargoController } from './cargo/edit-cargo-controller';
+import { ListNivelController } from './nivel/list-nivel-controller';
+import { EditNivelController } from './nivel/edit-nivel-controller';
+import { NivelController } from './nivel/nivel-controller';
+import { EditSalarioController } from './salario/edit-salario-controller';
+import { ListSalarioController } from './salario/list-salario-controller';
+import { ListFuncionarioController } from './funcionario/list-funcionario-controller';
+import { EditFuncionarioController } from './funcionario/edit-funcionario-controller';
+import { FuncionarioService } from './funcionario/funcionario.service';
 
 //import { NgxMaskModule } from 'ngx-mask';
 
@@ -35,18 +45,26 @@ import { PasswordMatch } from './shared/password-match';
     AppComponent,
     HeaderComponent,
     SalarioController,
+    EditSalarioController,
+    ListSalarioController,
     HomeComponent,
     InputComponent,
     RadioComponent,
     RatingComponent,
     CargoController,
+    ListCargoController,
+    EditCargoController,
+    ListNivelController,
+    NivelController,
+    EditNivelController,
     SetorController,
-    UserComponent,
-    AddUserComponent,
+    ListSetorController,
+    EditSetorController,
     UserDetailComponent,
     PasswordMatch,
-   // UserService,
     FuncionarioController,
+    ListFuncionarioController,
+    EditFuncionarioController,
     LoginComponent
   ],
   imports: [
@@ -54,7 +72,6 @@ import { PasswordMatch } from './shared/password-match';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    //NgxMaskModule.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
@@ -62,7 +79,8 @@ import { PasswordMatch } from './shared/password-match';
     Services,
     AuthService,
     AuthGuard,
-    DataManager],
+    DataManager,
+    FuncionarioService],
 
   bootstrap: [AppComponent]
 })

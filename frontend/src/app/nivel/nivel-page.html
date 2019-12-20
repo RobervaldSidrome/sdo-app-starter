@@ -1,0 +1,42 @@
+
+<section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+      <ol class="breadcrumb">
+          <li><a [routerLink]="['/']">Super Ensino</a></li>
+          <li>Cargos</li>
+        </ol>
+        <form #form="ngForm" novalidate>
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="glyphicon glyphicon-hourglass"></i> Cadastrar Nível
+              </h2>
+            </div>
+          </div>                
+
+          <div class="row invoice-info">
+            <div class="col-xs-12">
+              <p class="lead">Informações Gerais</p>
+            </div>
+            <div class="col-sm-12">
+              <label>Nível</label>
+              <mt-input-container errorMessage="Campo obrigatório" label="nome">
+                <input class="form-control" name="nome" ngModel required placeholder="Nome do Nivel" autocomplete="off">
+              </mt-input-container>
+            </div>
+          </div>
+          <div class="row">
+            <div class="pull-right">
+                <button  (click)="form.reset()" type="button" class="btn btn-danger">
+                 <i class="fa fa-trash"></i> Limpar</button>
+                <button [disabled]="!form.valid" (click)="submit(form.value)" class="btn btn-success" >
+                 <i class="glyphicon glyphicon-save"></i> Cadastrar
+              </button>
+            </div>
+          </div>
+        </form>
+    </section>
+</section>

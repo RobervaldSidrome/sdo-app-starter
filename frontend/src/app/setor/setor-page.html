@@ -8,7 +8,7 @@
           <li><a [routerLink]="['/']">Super Ensino</a></li>
           <li>Setores</li>
         </ol>
-        <form #form="ngForm" novalidate>
+        <form #form="ngForm">
           <div class="row">
             <div class="col-xs-12">
               <h2 class="page-header">
@@ -23,8 +23,8 @@
             </div>
             <div class="col-sm-3 col-xs-6">
               <label>Nome do Setor</label>
-              <mt-input-container errorMessage="Campo obrigatório" label="Equipamento">
-                <input class="form-control" name="equipamento" ngModel required placeholder="Setor" autocomplete="off">
+              <mt-input-container errorMessage="Campo obrigatório" label="nome">
+                <input class="form-control" name="nome" ngModel required placeholder="Setor" autocomplete="off">
               </mt-input-container>
             </div>
            
@@ -58,7 +58,7 @@
           <div class="pull-right">
             <button (click)="form.reset()" type="button" class="btn btn-danger">
               <i class="fa fa-trash"></i> Limpar</button>
-            <button (click)="checkOrder(form.value)" class="btn btn-success">
+            <button [disabled]="!form.valid" (click)="submit(form.value)" class="btn btn-success">
               <i class="glyphicon glyphicon-save"></i> Cadastrar
             </button>
           </div>

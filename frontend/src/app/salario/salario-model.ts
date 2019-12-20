@@ -1,35 +1,14 @@
-class Avanco{
+import { Cargo } from "app/cargo/cargo-model";
+import { Nivel} from "app/nivel/nivel-model"
+
+class Salario{
     constructor(
-        public obra: Obra[] = [],
-        public subobra: SubObra[] = [],
-        public processo: Processo[] = [],
-        public data: Date,
-        public hora: string,
-        public statusObra: StatusObra[] = [],
-        public turno: Turno[] = [],
-        public percentualAvanco: number,
-        public valorObraHora: number
+        public cargo: Cargo,
+        public nivel: Nivel,
+        public salario: number,
+        public _id: string,
+        public createdAt: string,
+        public updatedAt: string
     ){}
 }
-
-class Obra{
-    constructor(public obra){}
-}
-
-class SubObra{
-    constructor(public subobra){}
-}
-
-class StatusObra{
-    constructor(public statusObra){}
-}
-
-class Processo{
-    constructor(public processo){}
-}
-
-class Turno{
-    constructor(public turno){}
-}
-
-export {Avanco}
+export {Salario}

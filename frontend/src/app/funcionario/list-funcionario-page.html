@@ -1,0 +1,56 @@
+<!--INICIO DO CONTEUDO-->
+<section class="content-header">
+</section>
+
+<section class="content">
+  
+  <section class="invoice">
+        <form #form="ngForm" novalidate>
+          <div class="row">
+            <div class="col-xs-6">
+              <h2 class="page-header">
+                <i class="glyphicon glyphicon-lock"></i> Listagem de funcionários
+              </h2>
+            </div>
+            <div class="col-xs-6 text-right">
+              <a [routerLink]="['/funcionario/criar']" class="btn btn-primary">Adicionar Funcionário</a>
+            </div>
+          </div>                
+          <div class="row invoice-info">
+            <div class="col-xs-12">
+              <p class="lead">Informações Gerais:</p>
+            </div>
+            
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="hidden">Id</th>
+                  <th>Matrícula</th>
+                  <th>Nome</th>
+                  <th>Cargo</th>
+                  <th>Nível</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let funcionario of funcionarios">
+                  <td class="hidden">{{funcionario._id}}</td>
+                  <td class="col-md-1">{{funcionario.matricula}}</td>
+                  <td class="col-md-4">{{funcionario.nome}}</td>
+                  <td class="col-md-2">{{funcionario.cargo}}</td>
+                  <td class="col-md-2">{{funcionario.nivel}}</td>
+                  <td class="col-md-3 text-right"> 
+                    <button (click)="navigate(funcionario)"  class="btn btn-info">
+                        <i class="glyphicon glyphicon-refresh"></i> Alterar
+                    </button>
+                    <button (click)="delete(funcionario._id)" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash" ></i> Excluir
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+    </section>
+</section>
+<!-- FIM DO CONTEUDO--><!--INICIO DO CONTEUDO-->
