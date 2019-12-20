@@ -50,15 +50,15 @@ export class EditFuncionarioController implements OnInit {
     })
     
   }
-  async getFuncionario(){
-    const salarios = await this.service.getSalarios().toPromise() as Array<Salario>
+  getFuncionario(){
     this.service.getFuncionarios(this.id).subscribe((data:Funcionario)=>{
       this.funcionario = data
-      this.funcionario.cargoNivel = salarios.find(sal=> sal._id === this.funcionario.cargoNivel._id)
-      this.selectedCargo = this.funcionario.cargoNivel.cargo?this.funcionario.cargoNivel.cargo:this.selectedCargo
-      this.getNiveis()
-      this.selectedNivel = this.funcionario.cargoNivel.nivel?this.funcionario.cargoNivel.nivel:this.selectedNivel
-      if(this.funcionario.cargoNivel.cargo && this.funcionario.cargoNivel.nivel) this.setCargoNivel()
+      if(this.funcionario.cargoNivel){
+        this.selectedCargo = this.funcionario.cargoNivel.cargo?this.funcionario.cargoNivel.cargo:this.selectedCargo
+        this.getNiveis()
+        this.selectedNivel = this.funcionario.cargoNivel.nivel?this.funcionario.cargoNivel.nivel:this.selectedNivel
+        if(this.funcionario.cargoNivel.cargo && this.funcionario.cargoNivel.nivel) this.setCargoNivel()
+      }
     })
   }
   
@@ -70,9 +70,14 @@ export class EditFuncionarioController implements OnInit {
           this.niveis.push(nivel.nivel)
         }
       }
-      
-      
-    }) 
+    })
+    console.log(this.niveis)
+  }
+  checkNiveis(){
+    if(this.niveis.length>0){
+      return false
+    }
+    return true
   }
 
   setCargoNivel(){

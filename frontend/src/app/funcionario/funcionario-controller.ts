@@ -30,6 +30,13 @@ export class FuncionarioController implements OnInit {
       this.niveis = data.map(element=>element = element.nivel)
     }) 
   }
+  
+  checkNiveis(){
+    if(this.niveis.length>0){
+      return false
+    }
+    return true
+  }
 
   setCargoNivel(){
     this.service.getSalarios("",`cargo=${this.selectedCargo._id}&nivel=${this.selectedNivel._id}`).subscribe((data:Salario)=>{

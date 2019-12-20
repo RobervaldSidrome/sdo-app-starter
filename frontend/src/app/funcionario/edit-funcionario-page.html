@@ -51,7 +51,7 @@
               <div class="col-md-12">
                 <label>Nivel</label>
                 <mt-input-container errorMessage="Campo obrigatório" label="nivel">
-                  <select #nivel type="text" class="form-control" name="nivel" (change)="setCargoNivel()" required [(ngModel)]="selectedNivel" [compareWith]="compareId" placeholder="nivel" autocomplete="off">
+                  <select [disabled]="checkNiveis()" #nivel type="text" class="form-control" name="nivel" (change)="setCargoNivel()" required [(ngModel)]="selectedNivel" [compareWith]="compareId" placeholder="nivel" autocomplete="off">
                     <option [ngValue]="nivel" *ngFor="let nivel of niveis">{{nivel.nome}}</option>
                   </select>
                 </mt-input-container>

@@ -102,9 +102,9 @@ export class Services {
     }
     if(query){
       url = url + `?${query}`
-      return this.auth.get(url + '&populate=cargoNivel')
+      return this.auth.get(url)
     }
-    return this.auth.get(url + '?populate=cargoNivel&populate=cargoNivel.cargo&populate=cargoNivel.nivel')
+    return this.auth.get(url)
   }
   deleteFuncionario(id: string){
     return this.auth.delete(BASE_URL + `funcionario/${id}`)

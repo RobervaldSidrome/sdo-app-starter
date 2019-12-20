@@ -20,20 +20,19 @@ export class ListFuncionarioController implements OnInit {
   ngOnInit() {
     this.getFuncionarios()
   }
-  async getFuncionarios(){
-    const salarios = await this.service.getSalarios().toPromise() as Array<Salario>
-    this.service.getFuncionarios().subscribe((data:Array<Funcionario>)=>{
+  getFuncionarios(){
+    this.service.getFuncionarios().subscribe((data: any)=>{
       this.funcionarios = data
-      for(let func of this.funcionarios){
+      this.funcionarios.map(func=>{
         if(func.cargoNivel){
-          func.cargoNivel = salarios.find(sal=> sal._id === func.cargoNivel._id)
-          func.cargo = func.cargoNivel.cargo?func.cargoNivel.cargo.nome:"Não Atribuído"
-          func.nivel = func.cargoNivel.nivel?func.cargoNivel.nivel.nome:"Não Atribuído"
-        }else{
-            func.cargo = "Não atribuído"
-            func.nivel = "Não atribuído"
+          func.cargo = func.cargoNivel.cargo?func.cargoNivel.cargo:"Não Atribuído"
+          func.nivel = func.cargoNivel.nivel?func.cargoNivel.nivel:"Não Atribuído"
         }
-      }
+        else{
+          func.cargo = "Não Atribuído"
+          func.nivel = "Não Atribuído"
+        }
+      })
     })
 
   }

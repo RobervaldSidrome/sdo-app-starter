@@ -13,7 +13,6 @@ export class SetorController implements OnInit {
   constructor(private service:Services) { }
 
   ngOnInit() {
-    console.log(this.form.valid)
   }
   submit(form:Setor){
     this.service.createSetor(form).subscribe(data=>{
