@@ -15,6 +15,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.2.7",
+    "@angular/compiler-cli": "4.3.3",
     "@angular/common": "4.3.3",
     "@angular/compiler": "4.3.3",
     "@angular/core": "4.3.3",
@@ -62,7 +64,6 @@
   },
   "engines": {
     "node": "12.3.0",
-    "npm":"6.13.0 "
-
+    "npm": "6.13.0 "
   }
 }
