@@ -24,14 +24,18 @@ export class ListFuncionarioController implements OnInit {
     this.service.getFuncionarios().subscribe((data: any)=>{
       this.funcionarios = data
       this.funcionarios.map(func=>{
+        console.log(this.funcionarios)
         if(func.cargoNivel){
-          func.cargo = func.cargoNivel.cargo?func.cargoNivel.cargo:"Não Atribuído"
-          func.nivel = func.cargoNivel.nivel?func.cargoNivel.nivel:"Não Atribuído"
+          func.cargo = func.cargoNivel.cargo?func.cargoNivel.cargo.nome:"Não Atribuído"
+          func.nivel = func.cargoNivel.nivel?func.cargoNivel.nivel.nome:"Não Atribuído"
+          func.salario = func.cargoNivel.salario?func.cargoNivel.salario:"Não Atribuído"
         }
         else{
           func.cargo = "Não Atribuído"
           func.nivel = "Não Atribuído"
+          func.salario = "Não Atribuído"
         }
+        console.log(this.funcionarios)
       })
     })
 
