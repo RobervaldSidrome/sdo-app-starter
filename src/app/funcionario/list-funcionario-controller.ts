@@ -28,12 +28,12 @@ export class ListFuncionarioController implements OnInit {
         if(func.cargoNivel){
           func.cargo = func.cargoNivel.cargo?func.cargoNivel.cargo.nome:"Não Atribuído"
           func.nivel = func.cargoNivel.nivel?func.cargoNivel.nivel.nome:"Não Atribuído"
-          func.salario = func.cargoNivel.salario?func.cargoNivel.salario:"Não Atribuído"
+          func.salario = func.cargoNivel.salario?func.cargoNivel.salario:""
         }
         else{
           func.cargo = "Não Atribuído"
           func.nivel = "Não Atribuído"
-          func.salario = "Não Atribuído"
+          func.salario = ""
         }
         console.log(this.funcionarios)
       })
